@@ -12,42 +12,33 @@ function populate() {
         for(var i = 0; i< choices.length; i++){
             var choiceE1 =  document.getElementById("choice"+i);
             choiceE1.innerHTML = choices[i];
-            var id = "btn"+i
+            guess("btn"+i, choices[i]);
         };
-        
-        var button = document.getElementById(id); 
-        button.oneclick = function() {
-            this.questionIndex++;
-            quiz.guess(guess);
-            populate()
-        };
+        showProgress();
     };
-};
-// function populateAgain() {
-//     if(quiz.isEnded() ) {
-//         showScores()
-//     }
-//     else {
-//         //shows the  question
-//         var questionTitle = document.querySelector("#question-title");
-//         questionTitle.innerHTML = quiz.getQuestionIndex().text;
+ };
 
-//         //show choices
-//         var choices = quiz.getQuestionIndex().choices;
-//         for(var i = 0; i< choices.length; i++){
-//             var choiceE1 =  document.getElementById("choice"+i);
-//             choiceE1.innerHTML = choices[i];
-//         };
-//     }
-// };
-function guess(id, guess) {
-    var button 
-    
-};
+ function guess(id, guess) {
+    var button = document.getElementById(id);
+    button.onclick = function() {
+        quiz.guess(guess);
+        populate();
+    };
+ };
+
+function showProgress() {
+    var currentQuestionNum = quiz.questionIndex+ 1;
+    var elememt = document.getElementById("progress");
+    elememt.innerHTML = "question "+ currentQuestionNum + "of "+ quiz.questions.length;
+
+}
+
 function showScores() {
-    var gameOverHtml = "<h1>Result</h1>";
-    gameOverHtml += "<h2 id='score'> Your Score: " + quiz.score + "</h2>";
-    var gmE1 = document.getElementById("wQuiz")
+    document.getElementById("questions").style.display = "none";
+    document.getElementById("end-game").style.display = "block";
+    var gameOverHtml = "";
+    gameOverHtml = quiz.score;
+    var gmE1 = document.getElementById("results");
     gmE1.innerHTML = gameOverHtml;
 };
 

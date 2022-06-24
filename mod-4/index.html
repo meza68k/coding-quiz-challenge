@@ -8,7 +8,7 @@
     <body>
         <div id="highscore" class="begin"><a href="highscores.html">View highscores</a></div>
 
-        <div class="timer">Time: <span id="time">0</span></div>
+        <div class="timer">Time: <span id="time"></span></div>
 
         <div id="wQuiz">
             <div id="quiz-prompt" class="quiz-wrap">
@@ -33,20 +33,24 @@
             </section>
             <section id="end-game" class="hide, quiz-wrap">
                 <h2>All done!</h2>
+                <p>Your Score:<span id="results"></span></p>
                 <p>
+                    
                     Enter initials: <input type="text" id="initials" max="3" />
-                <button id="submit">submit</button>
+                <button id="submit">Save score</button>
                 </p>
             </section>
             <hr style="margin-top: 50px">
-            
+
             <footer>
                 <p id="progress"></p>
             </footer>
+
         </div> 
         <script src="./assets/js/quiz-controller.js"></script>
         <script src="./assets/js/quiz.js"></script>
         <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/manager.js"></script>
        
 
     </body>
