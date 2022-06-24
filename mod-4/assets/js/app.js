@@ -12,38 +12,20 @@ function populate() {
         for(var i = 0; i< choices.length; i++){
             var choiceE1 =  document.getElementById("choice"+i);
             choiceE1.innerHTML = choices[i];
-            var id = "btn"+i
-        };
-        
-        var button = document.getElementById(id); 
-        button.oneclick = function() {
-            this.questionIndex++;
-            quiz.guess(guess);
-            populate()
+            guess("btn"+i, choices[i]);
         };
     };
-};
-// function populateAgain() {
-//     if(quiz.isEnded() ) {
-//         showScores()
-//     }
-//     else {
-//         //shows the  question
-//         var questionTitle = document.querySelector("#question-title");
-//         questionTitle.innerHTML = quiz.getQuestionIndex().text;
+ };
 
-//         //show choices
-//         var choices = quiz.getQuestionIndex().choices;
-//         for(var i = 0; i< choices.length; i++){
-//             var choiceE1 =  document.getElementById("choice"+i);
-//             choiceE1.innerHTML = choices[i];
-//         };
-//     }
-// };
-function guess(id, guess) {
-    var button 
-    
-};
+ function guess(id, guess) {
+    var button = document.getElementById(id);
+    button.onclick = function() {
+        debugger;
+        quiz.guess(guess);
+        populate();
+    };
+ };
+
 function showScores() {
     var gameOverHtml = "<h1>Result</h1>";
     gameOverHtml += "<h2 id='score'> Your Score: " + quiz.score + "</h2>";
