@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./assets/css/style.css"/>
+        <meta charset="UTF-8"/>
+        <title>Quizzo</title>
+    </head>
+    <body>
+        <div id="highscore" class="begin"><a href="highscores.html">View highscores</a></div>
+
+        <div class="timer">Time: <span id="time">0</span></div>
+
+        <div id="wQuiz">
+            <div id="quiz-prompt" class="quiz-wrap">
+                <h1>Coding Quiz Challenge</h1>
+                <p>Try to Answer the following code-related questions whithin the time
+                   limit. keep in mind that inccorect answers will penalize your
+                    score/time by ten seconds!
+                </p>
+                <button id="start-btn">Start Quiz</button>
+            </div>
+
+            <section id="questions" class="hide, quiz-wrap">
+                
+                <h2 id="question-title"></h2>
+                
+                <div id="choices" class="choices">
+                    <button id="btn0"><span id="choice0"></span></button>
+                    <button id="btn1"><span id="choice1"></span></button>
+                    <button id="btn2"><span id="choice2"></span></button>
+                    <button id="btn3"><span id="choice3"></span></button>
+                </div>
+            </section>
+            <section id="end-game" class="hide, quiz-wrap">
+                <h2>All done!</h2>
+                <p>
+                    Enter initials: <input type="text" id="initials" max="3" />
+                <button id="submit">submit</button>
+                </p>
+            </section>
+            <hr style="margin-top: 50px">
+            
+            <footer>
+                <p id="progress"></p>
+            </footer>
+        </div> 
+        <script src="./assets/js/quiz-controller.js"></script>
+        <script src="./assets/js/quiz.js"></script>
+        <script src="./assets/js/app.js"></script>
+       
+
+    </body>
+</html>
